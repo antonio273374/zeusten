@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeuinstein — Mente Aberta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+
+  <div class="tudo">
+
+    <aside class="chatbot" >
+
+      <header class="sidebar-topo">
+        <h1 class="titulo">Mente Exata <span>I.A</span></h1>
+        <button class="btn-novo" onclick="novoChat()">+ New Chat</button>
+      </header>
+
+      <nav class="nav" a>
+        <h2>Recentes</h2>
+        <ul id="lista">
+          <li class="item ativo"><a href="#"># Resolução de Derivadas</a></li>
+          <li class="item"><a href="#"># Leis de Newton - Física</a></li>
+          <li class="item"><a href="#"># Exercícios de Álgebra</a></li>
+        </ul>
+   <button class="btn-acesso" id="btn-acesso" aria-label="Alternar modo claro" title="Acessibilidade: modo claro">
+        ☀️
+      </button>
+             </nav>
+                
+
+
+      <footer class="rodape">
+        <div>
+          <p class="usuario-nome">Mente Aberta</p>
+          <p class="usuario-email">menteaberta@gmail.com</p>
+        </div>
+      </footer>
+
+    </aside>
+
+    <main class="area" aria-label="Área do chat">
+
+      <header class="topo">
+        <p class="modelo">Zeuinstein v2.0</p>
+        <button class="idioma" aria-label="Idioma">PT / ∨</button>
+      </header>
+
+      <section class="mensagens" id="mensagens" aria-live="polite" aria-label="Mensagens">
+
+        <article class="mensagem ia" aria-label="Mensagem do Zeuinstein">
+          <p>Olá! Sou o Zeuinstein. Como posso ajudar você a dominar Matemática ou Física hoje?</p>
+        </article>
+
+      </section>
+
+      <footer class="chat">
+
+        <div class="input">
+          <button class="btn-anexo" aria-label="Anexar arquivo" title="Anexar">✛</button>
+          <textarea
+            id="texto"
+            class="texto"
+            placeholder="Envie sua dúvida para a IA..."
+            rows="1"
+            aria-label="Campo de mensagem"
+            oninput="ajustarAltura(this)"
+            onkeydown="enviarEnter(event)"
+          ></textarea>
+          <button class="btn-mic" aria-label="Microfone">🎙</button>
+          <button class="btn-enviar" aria-label="Enviar mensagem" onclick="enviarMensagem()">▶</button>
+        </div>
+
+        <p class="aviso">A IA pode cometer erros. Verifique informações importantes.</p>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script>
+    function ajustarAltura(el) {
+      el.style.height = 'auto';
+      el.style.height = Math.min(el.scrollHeight, 160) + 'px';
+    }
+
+    function enviarEnter(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        enviarMensagem();
+      }
+    }
+
+    function enviarMensagem() {
+      const campo = document.getElementById('campo-texto');
+      const texto = campo.value.trim();
+      if (!texto) return;
+
+      const container = document.getElementById('chat-mensagens');
+
+      const msgUsuario = document.createElement('article');
+      msgUsuario.className = 'mensagem usuario';
+      msgUsuario.setAttribute('aria-label', 'Sua mensagem');
+      msgUsuario.innerHTML = `<p>${texto}</p>`;
+      container.appendChild(msgUsuario);
+
+      campo.value = '';
+      campo.style.height = 'auto';
+      container.scrollTop = container.scrollHeight;
+
+      setTimeout(() => {
+        const msgIA = document.createElement('article');
+        msgIA.className = 'mensagem ia';
+        msgIA.setAttribute('aria-label', 'Mensagem do Zeuinstein');
+        msgIA.innerHTML = `<p>Entendi! Estou processando sua dúvida sobre: "<em>${texto}</em>"...</p>`;
+        container.appendChild(msgIA);
+        container.scrollTop = container.scrollHeight;
+      }, 800);
+    }
+
+    function novoChat() {
+      const container = document.getElementById('chat-mensagens');
+      container.innerHTML = `
+        <article class="mensagem ia" aria-label="Mensagem do Zeuinstein">
+          <p>Olá! Sou o Zeuinstein. Como posso ajudar você a dominar Matemática ou Física hoje?</p>
+        </article>`;
+    }
+  </script>
+    <script>
+ 
+    function toggleMenu(btn) {
+      const nav = document.getElementById('nav-principal');
+      const aberto = nav.classList.toggle('aberto');
+      btn.setAttribute('aria-expanded', aberto);
+    }
+
+
+    const btn = document.getElementById('btn-acesso');
+    btn.addEventListener('click', () => {
+      const ativo = document.body.classList.toggle('modo-escuro');
+      btn.textContent = ativo ? '🌙' : '☀️';
+      btn.setAttribute('aria-label', ativo ? 'Alternar modo escuro' : 'Alternar modo claro');
+      localStorage.setItem('modo-escuro', ativo);
+    });
+
+    if (localStorage.getItem('modo-escuro') === 'true') {
+      document.body.classList.add('modo-escuro');
+      btn.textContent = '🌙';
+    }
+  </script>
+
+</body>
+</html>

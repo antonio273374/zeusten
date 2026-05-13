@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mente Aberta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="custom.css">
+</head>
+<body> 
+  <header>
+    
+    <section class="container">
+ 
+      <section class="logo" >
+        <figure>
+          <img src="imagens/logo.png" alt="Logo Mente Aberta">
+         
+        </figure>
+
+        Mente Aberta 
+      </section >
+
+      <section class="nav" >
+        <ul>
+         <li><a href="index.html">Home</a></li>
+          <li><a href="chatbot.html">Chat BOT</a></li>
+        </ul>
+      </section>
+
+      <button class="btn-acesso" id="btn-acesso" aria-label="Alternar modo claro" title="Acessibilidade: modo claro">
+        ☀️
+      </button>
+    </section>
+
+  </header>
+  <main class="topo ">
+    <section id="hero" >
+      <div class="container">
+
+        <figure>
+          <img src="imagens/marca.png" alt="Logo animado Mente Aberta">
+        </figure>
+
+        <h1 id="hero-titulo">
+          Aprenda Matemática e Física<br>de Forma Inteligente
+        </h1>
+
+        <a target="_blank" href="landipage.html" rel='noopener noreferrer' class="btn-cta">Comece agora</a>
+
+      </div>
+    </section>
+
+    <section id="sobre">
+      <main class="container">
+        <h2 >Sobre o Mente Aberta</h2>
+        <article>
+          <p>
+            O Mente Aberta é uma plataforma educacional desenvolvida para ajudar
+            estudantes a aprender de forma prática, utilizando tecnologia e
+            suporte inteligente.
+          </p>
+        </article>
+      </main>
+    </section>
+  </main>
+
+    <main id="diferencial">
+      <section class="container">
+
+        <aside aria-label="Elementos decorativos">
+          <span class="icone-raio" >⚡</span>
+          <span class="icone-raio">⚡</span>
+
+        </aside>
+
+            <article>
+                  <h2 align="center">Diferencial</h2>
+                  <ul>
+                    <li><span>✓ </span> Conteúdo confiável</li>
+                    <li><span >✓ </span> Suporte rápido</li>
+                    <li><span>✓ </span> Aprendizado simplificado</li>
+                  </ul>
+          </article>
+      </section>
+    </main>
+
+  <footer>
+    <div class="container">
+
+      <p class="footer-tagline">
+        Aprenda de forma simples com o apoio do nosso site e tecnologia inteligente.
+      </p>
+
+      <div class="footer-grid">
+
+        <section class="footer-col" >
+          <h4 id="col-contato">Contato</h4>
+          <p>Email: suporte@menteaberta.com</p>
+          <p>Tel: (00) 0000-0000</p>
+        </section>
+
+        <section class="footer-col">
+          <h4 id="col-inst">Institucional</h4>
+          <p>Parceria com instituições de ensino</p>
+          <p>Apoiado por especialistas em educação</p>
+        </section>
+
+        <section class="footer-col" >
+          <h4 id="col-legal">Legal</h4>
+          <p>Termos de uso</p>
+          <p>Política de privacidade</p>
+        </section>
+
+        <section class="footer-col" >
+          <h4 id="col-social">Redes Sociais</h4>
+          <p>Instagram</p>
+          <p>Facebook</p>
+          <p>Twitter</p>
+        </section>
+
+        <section class="footer-col">
+          <h4 id="col-sobre">Sobre</h4>
+          <p>Plataforma educacional focada em auxiliar estudantes com tecnologia e aprendizado inteligente.</p>
+        </section>
+
+      </div>
+      <p class="footer-copy">© 2026 Mente Aberta — Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav-principal');
+      const btn = document.getElementById('menu-toggle');
+      const aberto = nav.classList.toggle('aberto');
+      btn.setAttribute('aria-expanded', aberto);
+      btn.textContent = aberto ? '✕' : '☰';
+    }
+
+    const btn = document.getElementById('btn-acesso');
+    btn.addEventListener('click', () => {
+      const ativo = document.body.classList.toggle('modo-escuro');
+      btn.textContent = ativo ? '🌙' : '☀️';
+      btn.setAttribute('aria-label', ativo ? 'Alternar modo escuro' : 'Alternar modo claro');
+      localStorage.setItem('modo-escuro', ativo);
+    });
+
+    if (localStorage.getItem('modo-escuro') === 'true') {
+      document.body.classList.add('modo-escuro');
+      btn.textContent = '🌙';
+    }
+  </script>
+
+  
+</body>
+</html>

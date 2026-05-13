@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mente Aberta — Solucionador de Tarefas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="busca.css">
+</head>
+<body>
+
+  <header>
+    <section class="container">
+
+      <div class="header-esquerda">
+        <a href="index.html" class="logo-texto">Mente Aberta</a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" onclick="toggleMenu()">
+        ☰
+      </button>
+    
+      <nav id="nav-principal" class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="chatbot.html" target="_blank" rel="noopener noreferrer" title="Abrir chat em uma nova aba">
+              Falar com nosso Chatbot
+            </a>
+          </li>
+        </ul>
+        <button class="btn-acesso" id="btn-acesso">☀️</button>
+      </nav>
+
+    </section>
+  </header>
+
+  <main id="topo">
+
+    <section id="hero">
+      <div class="container">
+
+        <article>
+          <h1 id="hero-titulo">Solucionador de Tarefas Avançadas</h1>
+          <p>Domine a Matemática e a Física com inteligência e pratique com especialistas</p>
+      <form>
+
+    <input type="search" name="busca" placeholder="Digite sua pesquisa">
+
+  </form>
+</article>
+
+
+        <aside >
+          <img src="imagens/persona.png" alt="foto do Zeuinstein" class="persona">
+          <span class="icone-raio" aria-hidden="true">⚡</span>
+          <span class="icone-raio" aria-hidden="true">⚡</span>
+          <span class="icone-raio" aria-hidden="true">⚡</span>
+        </aside>
+    </section>
+  </main>
+
+    <section id="cards">
+      <h2 align="center">Diferenciais da plataforma</h2>
+      <div class="container">
+
+        <article>
+          <span class="icone-card">📖</span>
+          <h3 align="center">Aprendizado Inteligente</h3>
+          <p>O melhor site para aprender matemática e física com explicações simples e rápidas. É com o Zeuinstein.</p>
+        </article>
+
+        <article>
+          <span class="icone-card">✅</span>
+          <h3 align="center">Qualidade Garantida</h3>
+          <p>Conteúdo confiável, baseado em ensino moderno e utilizado por estudantes para melhorar o desempenho.</p>
+        </article>
+
+        <article>
+          <span class="icone-card">🕐</span>
+          <h3 align="center">Recursos Avançados</h3>
+          <p>Chat inteligente, suporte rápido e ferramentas que facilitam seus estudos no dia a dia.</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+
+        <section class="footer-col">
+          <h4 id="col-contato">Contato</h4>
+         
+          <p>Email: suporte@menteaberta.com</p>
+          <p>Tel: (00) 0000-0000</p>
+        </section>
+
+        <section class="footer-col">
+          <h4 id="col-inst">Institucional</h4>
+          <p>Parceria com instituições de ensino</p>
+          <p>Apoiado por especialistas em educação</p>
+        </section>
+
+        <section class="footer-col">
+          <h4 id="col-legal">Legal</h4>
+          <p>Termos de uso</p>
+          <p>Política de privacidade</p>
+        </section>
+
+        <section class="footer-col">
+          <h4 id="col-social">Redes Sociais</h4>
+          <p>Instagram | Facebook | Twitter</p>
+        </section>
+
+        <section class="footer-col">
+          <h4 id="col-sobre">Sobre</h4>
+          <p>Plataforma educacional focada em auxiliar estudantes com tecnologia e aprendizado inteligente.</p>
+        </section>
+
+      </div>
+
+      <p class="footer-copy">© 2026 Mente Aberta — Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav-principal');
+      const btn = document.getElementById('menu-toggle');
+      const aberto = nav.classList.toggle('aberto');
+      btn.setAttribute('aria-expanded', aberto);
+      btn.textContent = aberto ? '✕' : '☰';
+    }
+
+    const btn = document.getElementById('btn-acesso');
+    btn.addEventListener('click', () => {
+      const ativo = document.body.classList.toggle('modo-escuro');
+      btn.textContent = ativo ? '🌙' : '☀️';
+      btn.setAttribute('aria-label', ativo ? 'Alternar modo escuro' : 'Alternar modo claro');
+      localStorage.setItem('modo-escuro', ativo);
+    });
+
+    if (localStorage.getItem('modo-escuro') === 'true') {
+      document.body.classList.add('modo-escuro');
+      btn.textContent = '🌙';
+    }
+  </script>
+</body>
+</html>
