@@ -1,11 +1,11 @@
 :root {
---dark:     #f4f2ff;
---section:  #eae7ff;
---roxo:     #8A00C4;
---amarelo:  #c9a800;
---white:    #070620;
---font:     'Poppins', sans-serif;
-
+    --dark:     #4A4A6A;;
+    --section:  #baaefd;
+    --purple: #6B0099;
+    --purple:  #8A00C4 ;
+    --destaque: #ffe500;
+    --white:    #0A0926;
+    --font:     'Poppins', sans-serif; 
 }
 
 body.modo-escuro {
@@ -231,16 +231,15 @@ header .container {
 #cards article {
   padding: 8px;
   line-height: 39px;
-  color: #Ba8e23;
+  color: #fff;
   font-size: 15px;
   text-transform: lowercase;
 }
 
 #cards article .icone-card {
-  font-size: 50px;
-  padding: 20px;
+  font-size: 10px;
+  z-index: 2;
   display: block;
-  height: 30px;
 }
 
 
@@ -250,6 +249,7 @@ footer {
   font-family: var(--font);
   text-transform: capitalize;
   text-align: center;
+
 }
 
 .footer-grid {
@@ -262,14 +262,14 @@ footer {
 .footer-col h4 {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--destaque);
+  color: #7472B1;
   margin-bottom: 12px;
 }
 
 .footer-col p {
   display: block;
   font-size: 12px;
-  color: var(--amarelo);
+  color:#7472B1 ;
   margin-bottom: 6px;
   line-height: 23px;
 }
@@ -278,14 +278,14 @@ footer {
   text-transform: none;
   display: block;
   font-size: 12px;
-  color: var(--amarelo);
+  color: #7472B1;
   margin-bottom: 6px;
   line-height: 23px;
 }
 
 .footer-copy {
   font-size: 12px;
-  color: var(--destaque);
+  color: #7472B1;
   padding-top: 20px;
 }
 
